@@ -18,7 +18,7 @@ CATEGORIES = (
 
 class Supplier(models.Model):
   name = models.CharField(max_length=50)
-  phone = models.CharField(max_length=50)
+  phone = models.CharField(max_length=50) 
   email = models.EmailField()
   address = models.CharField(max_length=80)
   notes = models.TextField()
@@ -36,11 +36,11 @@ class Product(models.Model):
   description = models.TextField()
   quantity = models.IntegerField()
   category = models.CharField(
-    max_length= 1,
+    max_length= 4,
     choices = CATEGORIES,
     default = CATEGORIES[0][0]
   )
-  image = models.ImageField()
+  image = models.CharField()
   date_added = models.DateField()
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   suppliers = models.ManyToManyField(Supplier)
