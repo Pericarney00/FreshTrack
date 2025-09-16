@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    
+
     <title>FreshTrack</title>
     {% block head %} {% endblock %}
   </head>
@@ -19,8 +21,8 @@
         <ul>
           <li><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'product-index' %}"></a></li>
-          <li>
+          <li><a href="{% url 'product-index' %}">Product List</a></li>
+          <li><a href="{% url 'product-create' %}">Add a Product</a></li>
             <form id="logout-form" method="post" action="{% url 'logout' %}">
               {% csrf_token %}
               <button type="submit">Log out</button>

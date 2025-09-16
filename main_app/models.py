@@ -28,7 +28,7 @@ class Supplier(models.Model):
     return self.name
   
   def get_absolute_url(self):
-    return reverse("product-detail", kwargs={"pk":self.id})
+    return reverse("product-index")
   
 
 class Product(models.Model):
@@ -49,5 +49,5 @@ class Product(models.Model):
     return self.name
   
   def get_absolute_url(self):
-    return reverse('product-detail', kwargs={'pk':self.id })
+    return reverse('product-update', kwargs={"pk": self.id})
 
