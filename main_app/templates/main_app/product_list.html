@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+
+{% endblock %} {% block content %}
+<section>
+  <header>  
+    <h1>Product List</h1>
+  </header>
+</section>
+<section>
+  <table> 
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Brand</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Category</th>
+        <th>Image</th>
+        <th>Date Added</th>
+        <th>Suppliers</th>
+      </tr>
+    </thead>
+    {% for product in product_list %}
+    <tbody> 
+      <tr>
+        <td>{{product.name}}</td>
+        <td>{{product.brand}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.image}}</td>
+        <td>{{product.date_added}}</td>
+        <td>{{product.suppliers}}</td>
+      </tr>
+    </tbody>
+    {%endfor%}
+  </table>
+</section>
+
+
+{% endblock %}

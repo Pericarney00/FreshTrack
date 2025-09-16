@@ -12,7 +12,8 @@ CATEGORIES = (
   ('R', 'Refrigerated'),
   ('M&S', 'Meat & Seafood'),
   ('P/DG', 'Pantry/Dry Goods'),
-  ('H', 'Houshold Items')
+  ('H', 'Houshold Items'),
+  ('P', 'Produce')
 )
 
 
@@ -21,7 +22,7 @@ class Supplier(models.Model):
   phone = models.CharField(max_length=50) 
   email = models.EmailField()
   address = models.CharField(max_length=80)
-  notes = models.TextField()
+  notes = models.TextField(blank=True)
 
   def __str__(self):
     return self.name
@@ -40,10 +41,10 @@ class Product(models.Model):
     choices = CATEGORIES,
     default = CATEGORIES[0][0]
   )
-  image = models.CharField()
+  image = models.CharField(blank=True)
   date_added = models.DateField()
   user = models.ForeignKey(User, on_delete=models.CASCADE)
-  suppliers = models.ManyToManyField(Supplier)
+  suppliers = models.ManyToManyField(Supplier, null=True)
   def __str__(self):
     return self.name
   

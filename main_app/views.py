@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from .models import Product, Supplier
 from django.contrib.auth.views import LoginView
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 # CreateView, DetailView, UpdateView, DeleteView
 
@@ -15,3 +16,7 @@ class Home(LoginView):
 
 class About(TemplateView):
   template_name = 'about.html'
+
+class ProductList(ListView):
+  model = Product
+  
