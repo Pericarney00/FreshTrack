@@ -31,6 +31,9 @@ class Supplier(models.Model):
   def get_absolute_url(self):
     return reverse("product-index")
   
+  class Meta:
+    ordering = ['name']
+  
 
 class Product(models.Model):
   name = models.CharField(max_length=50)
@@ -51,4 +54,7 @@ class Product(models.Model):
   
   def get_absolute_url(self):
     return reverse('product-update', kwargs={"pk": self.id})
+  
+  class Meta:
+    ordering = ['name']
 

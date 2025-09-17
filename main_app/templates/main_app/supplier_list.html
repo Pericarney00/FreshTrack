@@ -22,15 +22,17 @@
     <tbody> 
       <tr>
         <td>{{supplier.name}}
-          {% comment %} <div class="supplier-actions">
-            <a href="{% url 'supplier-update' supplier.id %}" class="btn warn">Update</a>
-            <a href="{% url 'supplier-delete' supplier.id %}" class="btn danger">Delete</a>
-          </div> {% endcomment %}
         </td>
         <td>{{supplier.phone}}</td>
         <td>{{supplier.email}}</td>
         <td>{{supplier.address}}</td>
         <td>{{supplier.notes}}</td>
+        <td> 
+          <div class="supplier-actions">
+            <a href="{% url 'supplier-update' supplier.id %}" class="btn warn">Update</a>
+            <a href="{% url 'supplier-delete' supplier.id %}" class="btn danger">Delete</a>
+          </div> 
+        </td> 
       </tr>
     </tbody>
     {%endfor%}

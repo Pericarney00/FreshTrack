@@ -37,6 +37,7 @@ class About(TemplateView):
 class ProductList(LoginRequiredMixin, ListView):
   model = Product
 
+
   def get_queryset(self):
     queryset = Product.objects.filter(user=self.request.user)
     return queryset
@@ -59,8 +60,12 @@ class ProductCreate(LoginRequiredMixin, CreateView):
 class ProductUpdate(LoginRequiredMixin, UpdateView):
   model = Product
   form_class = ProductForm
-
   success_url = '/products/'
+
+  def get_form_kwargs(self):
+    kwargs = super().get_form_kwargs()
+    kwargs['user'] = self.request.user
+    return kwargs
 
 class ProductDelete(LoginRequiredMixin, DeleteView):
   model = Product
@@ -68,13 +73,28 @@ class ProductDelete(LoginRequiredMixin, DeleteView):
 
 class SupplierCreate(LoginRequiredMixin, CreateView):
   model = Supplier
-  fields = '__all__'
+  fields = ['name', 'phone', 'email', 'address', 'notes']
 
   success_url = '/suppliers/'
 
+  def form_valid(self, form):
+    form.instance.user =self.request.user
+    return super().form_valid(form)
+
 class SupplierList(LoginRequiredMixin, ListView):
   model = Supplier
+  success_url = '/suppliers/'
 
   def get_queryset(self):
     queryset = Supplier.objects.filter(user=self.request.user)
     return queryset
+  
+class SupplierUpdate(LoginRequiredMixin, UpdateView):
+  model = Supplier
+  fields = ['name', 'phone', 'email', 'address', 'notes']
+
+  success_url = '/suppliers/'
+
+class SupplierDelete(LoginRequiredMixin, DeleteView):
+  model = Supplier
+  success_url = '/suppliers/'
