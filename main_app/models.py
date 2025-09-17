@@ -20,7 +20,7 @@ CATEGORIES = (
 class Supplier(models.Model):
   name = models.CharField(max_length=50)
   phone = models.CharField(max_length=50) 
-  email = models.EmailField()
+  email = models.EmailField(blank=True, null=False)
   address = models.CharField(max_length=80)
   notes = models.TextField(blank=True)
 

@@ -59,3 +59,7 @@ class ProductUpdate(LoginRequiredMixin, UpdateView):
 class ProductDelete(LoginRequiredMixin, DeleteView):
   model = Product
   success_url = '/products/'
+
+class SupplierCreate(CreateView):
+  model = Supplier
+  fields = '__all__'

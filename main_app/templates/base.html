@@ -19,18 +19,20 @@
       </div>
       <nav>
         <ul>
-          <li><a href="{% url 'about' %}">About</a></li>
+          <li class="nav"><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'product-index' %}">Product List</a></li>
-          <li><a href="{% url 'product-create' %}">Add a Product</a></li>
+          <li class="nav"><a href="{% url 'product-index' %}">Product List</a></li>
+          <li class="nav"><a href="{% url 'product-create' %}">Add a Product</a></li>
+          <li class="nav"><a href="{% url 'supplier-create' %}">Add a Supplier</a></li>
+          <li class="nav">
             <form id="logout-form" method="post" action="{% url 'logout' %}">
               {% csrf_token %}
               <button type="submit">Log out</button>
             </form>
           </li>
           {% else %}
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="{% url 'home' %}">Login</a></li>
+          <li class="nav"><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li class="nav"><a href="{% url 'home' %}">Login</a></li>
           {% endif %}
         </ul>
       </nav>
