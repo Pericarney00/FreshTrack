@@ -12,6 +12,7 @@ urlpatterns = [
   path('products/<int:pk>/delete/', views.ProductDelete.as_view(), name='product-delete'),
   path('accounts/signup', views.signup, name='signup'),
   path('suppliers/create/', views.SupplierCreate.as_view(), name='supplier-create'),
-  
+  path('suppliers/', views.SupplierList.as_view(), name='supplier-index'),
+
 ]
 

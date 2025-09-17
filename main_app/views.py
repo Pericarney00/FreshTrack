@@ -40,6 +40,7 @@ class ProductList(LoginRequiredMixin, ListView):
   def get_queryset(self):
     queryset = Product.objects.filter(user=self.request.user)
     return queryset
+  
 class ProductCreate(LoginRequiredMixin, CreateView):
   model= Product
   form_class = ProductForm
@@ -60,6 +61,13 @@ class ProductDelete(LoginRequiredMixin, DeleteView):
   model = Product
   success_url = '/products/'
 
-class SupplierCreate(CreateView):
+class SupplierCreate(LoginRequiredMixin, CreateView):
   model = Supplier
   fields = '__all__'
+
+class SupplierList(LoginRequiredMixin, ListView):
+  model = Supplier
+
+  # def get_queryset(self):
+  #   queryset = Supplier.objects.filter(user=self.request.user)
+  #   return queryset
