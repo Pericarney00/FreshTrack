@@ -47,9 +47,14 @@ class ProductCreate(LoginRequiredMixin, CreateView):
 
   success_url = '/products/'
 
+  def get_form_kwargs(self):
+    kwargs = super().get_form_kwargs()
+    kwargs['user'] = self.request.user
+    return kwargs
+
   def form_valid(self, form):
-      form.instance.user =self.request.user
-      return super().form_valid(form)
+    form.instance.user =self.request.user
+    return super().form_valid(form)
   
 class ProductUpdate(LoginRequiredMixin, UpdateView):
   model = Product
@@ -65,9 +70,11 @@ class SupplierCreate(LoginRequiredMixin, CreateView):
   model = Supplier
   fields = '__all__'
 
+  success_url = '/suppliers/'
+
 class SupplierList(LoginRequiredMixin, ListView):
   model = Supplier
 
-  # def get_queryset(self):
-  #   queryset = Supplier.objects.filter(user=self.request.user)
-  #   return queryset
+  def get_queryset(self):
+    queryset = Supplier.objects.filter(user=self.request.user)
+    return queryset

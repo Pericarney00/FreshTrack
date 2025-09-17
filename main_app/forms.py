@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product
+from .models import Product, Supplier
 
 
 class ProductForm(forms.ModelForm):
@@ -15,3 +15,11 @@ class ProductForm(forms.ModelForm):
         }
       ),
     }
+
+  def __init__(self, *args, **kwargs ):
+    user =kwargs.pop('user', None)
+    super().__init__(*args, **kwargs)
+
+    if user is not None:
+      self.fields['suppliers'].queryset = Supplier.objects.filter(user=user)
+      
