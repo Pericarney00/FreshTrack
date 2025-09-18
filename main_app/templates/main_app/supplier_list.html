@@ -1,12 +1,13 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
-
+<link rel="stylesheet" href="{% static 'css/list.css' %}" />
 {% endblock %} {% block content %}
 <section>
-  <header>  
-    <h1>Supplier List</h1>
-  </header>
+  
+  <h1>Supplier List</h1>
+  
 </section>
 <section>
+  <div class="tablecontainer">
   <table> 
     <thead>
       <tr>
@@ -37,6 +38,7 @@
     </tbody>
     {%endfor%}
   </table>
+</div>
 </section>
 
 

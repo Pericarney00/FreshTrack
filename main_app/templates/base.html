@@ -5,20 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    
-
     <title>FreshTrack</title>
     {% block head %} {% endblock %}
   </head>
-  <body>
-    <header>
+  <body class="container">
+    <header class="sidebar">
       <div class="header-logo-container">
         <a href="/">
-          <img src="" alt="FreshTrack Logo" />
+          <img src="main_app/static/images/FreshTrackLogo.png" alt="FreshTrack Logo" />
         </a>
       </div>
-      <nav>
-        <h6> Welcome, {{user.name}}</h6>
+      <nav >
+        <p> Welcome, {{user.username}} </p>
         <ul>
           <li class="nav"><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
@@ -39,6 +37,6 @@
         </ul>
       </nav>
     </header>
-    <main>{% block content %} {% endblock %}</main>
+    <main class="main-content">{% block content %} {% endblock %}</main>
   </body>
 </html>

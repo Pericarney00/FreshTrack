@@ -1,3 +1,84 @@
+
+*{
+  
+  box-sizing: border-box;
+}
+:root {
+  /* Layout */
+  --color-navbar: rgba(31, 85, 51,.5);
+  --color-body: #F5F2EB;
+  --color-section-sage: #E3E9E4;
+  --color-section-beige: #EFE7DC;
+
+  /* Accents */
+  --color-accent-green: rgba(76, 175, 80, .75);
+  --color-accent-orange: #F28C38;
+  --color-accent-yellow: #FFD447;
+  --color-accent-red: #E63946;
+
+  /* Text */
+  --color-text-primary: #020202;
+  --color-text-secondary: #6E6E6E;
+}
+
 body {
-  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-body);
+--warn: rgb(255, 102, 0);
+--danger: rgb(220, 20, 30);
+}
+
+main{
+  max-width: 950px;
+}
+header{
+  display:flex;
+} 
+nav {
+list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 130px;
+  background-color: var(--color-navbar);
+  height: 100%; 
+  position: fixed; 
+  top:0;
+  left:0;
+  overflow: auto;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  
+}
+
+li a{
+  display: block;
+  color: var(--color-text-primary);
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color:var(--color-accent-green);
+  color: white;
+}
+
+.warn {
+  color: var(--warn);
+  border-color: var(--warn);
+}
+
+.danger {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.btn.submit{
+  background-color: var(--color-accent-green);
 }

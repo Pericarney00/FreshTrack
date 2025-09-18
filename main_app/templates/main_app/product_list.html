@@ -1,48 +1,58 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
-
+<link rel="stylesheet" href="{% static 'css/list.css' %}" />
 {% endblock %} {% block content %}
+
 <section>
-  <header>  
-    <h1>Product List</h1>
-  </header>
+  <h1>Product List</h1>
 </section>
 <section>
-  <table> 
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Brand</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Category</th>
-        <th>Image</th>
-        <th>Date Added</th>
-        <th>Suppliers</th>
-        <th>Update/Delete</th>
-      </tr>
-    </thead>
-    {% for product in product_list %}
-    <tbody> 
-      <tr>
-        <td>{{product.name}}
-          <div class="product-actions">
-            <a href="{% url 'product-update' product.id %}" class="btn warn">Update</a>
-            <a href="{% url 'product-delete' product.id %}" class="btn danger">Delete</a>
-          </div>
-        </td>
-        <td>{{product.brand}}</td>
-        <td>{{product.description}}</td>
-        <td>{{product.quantity}}</td>
-        <td>{{product.category}}</td>
-        <td>{{product.image}}</td>
-        <td>{{product.date_added}}</td>
-        {%for supplier in product.suppliers.all %}
-        <td>{{supplier.name}}</td>
-        {% endfor %}
-      </tr>
-    </tbody>
-    {%endfor%}
-  </table>
+  <div class="tablecontainer">
+    <table> 
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Brand</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Category</th>
+          <th>Image</th>
+          <th>Date Added</th>
+          <th>Suppliers</th>
+          <th>Update/Delete</th>
+        </tr>
+      </thead>
+      <tbody> 
+      {% for product in product_list %}
+        <tr>
+          <td>{{product.name}}
+            
+          </td>
+          <td>{{product.brand}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.quantity}}</td>
+          <td>{{product.category}}</td>
+          <td>{{product.image}}</td>
+          <td>{{product.date_added}}</td>
+          <td>
+            {%for supplier in product.suppliers.all %}
+            {{supplier.name}}
+            {% endfor %}
+          </td>
+          <td>
+            <div class="product-actions">
+              <button>
+                <a href="{% url 'product-update' product.id %}" class="btn warn">Update</a>
+              </button>
+              <button>
+                <a href="{% url 'product-delete' product.id %}" class="btn danger">Delete</a>
+              </button>
+            </div>
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
 </section>
 
 

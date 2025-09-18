@@ -1,0 +1,30 @@
+
+input, textarea, select, option{
+  background-color: var(--color-section-beige);
+  width: 100%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  width: 100%;
+}
+
+table {
+  padding: 0 40px;
+  width: 100%;
+  border-spacing: 0 20px;
+}
+
+th {
+  text-align: left;
+  padding: 6px 20px 0 0;
+  font-weight: normal;
+  vertical-align: top;
+  
+}
+
+td {
+  max-width: 60%;
+}
