@@ -8,8 +8,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import CreateView,  UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 # Create your views here.
@@ -98,3 +98,5 @@ class SupplierUpdate(LoginRequiredMixin, UpdateView):
 class SupplierDelete(LoginRequiredMixin, DeleteView):
   model = Supplier
   success_url = '/suppliers/'
+
+

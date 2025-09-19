@@ -14,8 +14,16 @@ from pathlib import Path
 
 import environ
 
+from django.shortcuts import render, redirect
+import os
+
+
 environ.Env()
 environ.Env.read_env()
+
+def some_function(request):
+    secret_key = os.environ['SECRET_KEY']
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

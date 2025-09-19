@@ -19,8 +19,8 @@
         <th>Update/Delete</th>
       </tr>
     </thead>
-    {% for supplier in supplier_list %}
     <tbody> 
+    {% for supplier in supplier_list %}
       <tr>
         <td>{{supplier.name}}
         </td>
@@ -35,8 +35,8 @@
           </div> 
         </td> 
       </tr>
+      {%endfor%}
     </tbody>
-    {%endfor%}
   </table>
 </div>
 </section>
