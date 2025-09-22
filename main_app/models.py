@@ -16,11 +16,6 @@ CATEGORIES = (
   ('P', 'Produce')
 )
 
-class Photo(models.Model):
-    url = models.CharField(max_length=200)
-    Product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    def __str__(self):
-        return f"Photo for product_id: {self.product_id} @{self.url}"
 
 class Supplier(models.Model):
   name = models.CharField(max_length=50)
@@ -50,6 +45,7 @@ class Product(models.Model):
     choices = CATEGORIES,
     default = CATEGORIES[0][0]
   )
+  image = models.CharField(blank=True)
   date_added = models.DateField()
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   suppliers = models.ManyToManyField(Supplier, null=True)
