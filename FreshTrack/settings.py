@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import environ
+
 from dotenv import load_dotenv
 from django.shortcuts import render, redirect
 import os
@@ -20,10 +20,8 @@ import dj_database_url
 
 load_dotenv()
 
-environ.Env()
-environ.Env.read_env()
-def some_function(request):
-    secret_key = os.environ['SECRET_KEY']
+
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
