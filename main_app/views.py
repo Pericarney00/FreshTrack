@@ -2,7 +2,7 @@ from django import forms
 from .forms import ProductForm
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
-from .models import Product, Supplier, Photo
+from .models import Product, Supplier
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import TemplateView, ListView
