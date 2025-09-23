@@ -5,7 +5,7 @@
 ## Getting Stared
 
 - [FreshTrack](https://pc-freshtrack-07ad6ebbc1cb.herokuapp.com/)
-- [FreshTrack Repo]()
+- [FreshTrack Repo](https://github.com/Pericarney00/FreshTrack)
 - [Planning Materials](https://trello.com/b/7gbw3HeV/freshtrack)
 
 
@@ -38,3 +38,4 @@ Features I would like to add include but are not limited to;
 - Data Analytics and Visualization of product data (which products are selling fast, products with the highest profit margin, etc.)
 - [API integration with Open Food Facts](https://world.openfoodfacts.org/data)
 - Table customization (disabling columns)
+- Moble Responsive Design
