@@ -48,7 +48,7 @@ class Product(models.Model):
   )
   date_added = models.DateField()
   user = models.ForeignKey(User, on_delete=models.CASCADE)
-  suppliers = models.ManyToManyField(Supplier, null=True)
+  suppliers = models.ManyToManyField(Supplier)
   def __str__(self):
     return self.name
   
@@ -68,4 +68,3 @@ class Photo(models.Model):
         return f"Photo for product_id: {self.product_id} @{self.url}"
     
 
-    
