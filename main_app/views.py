@@ -121,4 +121,4 @@ def add_photo(request, product_id):
         except Exception as e:
             print('An error occurred uploading file to S3')
             print(e)
-    return redirect('detail', product_id=product_id)
+    return redirect('product-index')
