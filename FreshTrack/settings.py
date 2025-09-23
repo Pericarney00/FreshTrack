@@ -16,9 +16,16 @@ from dotenv import load_dotenv
 
 import os
 import dj_database_url
+import environ
+from django.shortcuts import render, redirect
 
+environ.Env()
+environ.Env.read_env()
 
 load_dotenv()
+
+def some_function(request):
+    secret_key = os.environ['SECRET_KEY']
 
 
 

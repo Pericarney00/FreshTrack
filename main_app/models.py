@@ -35,6 +35,7 @@ class Supplier(models.Model):
     ordering = ['name']
   
 
+
 class Product(models.Model):
   name = models.CharField(max_length=50)
   brand = models.CharField(max_length=50)
@@ -45,7 +46,6 @@ class Product(models.Model):
     choices = CATEGORIES,
     default = CATEGORIES[0][0]
   )
-  image = models.CharField(blank=True)
   date_added = models.DateField()
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   suppliers = models.ManyToManyField(Supplier, null=True)
@@ -58,3 +58,11 @@ class Product(models.Model):
   class Meta:
     ordering = ['name']
 
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    alt_text = models.CharField(max_length=200, blank=True)  # For accessibility
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"Photo for product_id: {self.product_id} @{self.url}"

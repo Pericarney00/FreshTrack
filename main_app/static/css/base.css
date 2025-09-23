@@ -40,13 +40,16 @@ body {
 }
 
 main{
-  max-width: 950px;
+  max-width: 1000px;
 }
 header{
   display:flex;
 } 
 nav {
-list-style-type: none;
+  display:flex;
+  flex-direction: column;
+  
+  list-style-type: none;
   margin: 0;
   padding: 0;
   width: 130px;
@@ -90,4 +93,11 @@ li a:hover {
 
 .btn.submit{
   background-color: var(--color-accent-green);
+}
+
+.logout-btn{
+  background-color: var(--color-accent-yellow);
+}
+.logo{
+  max-width: 100px;
 }

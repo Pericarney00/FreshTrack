@@ -12,7 +12,7 @@
     <header class="sidebar">
       <div class="header-logo-container">
         <a href="/">
-          <img src="main_app/static/images/FreshTrackLogo.png" alt="FreshTrack Logo" />
+          <img class="logo" src="https://freshtrackassets.s3.us-east-1.amazonaws.com/FreshTrackLogo.png" alt="FreshTrack Logo" />
         </a>
       </div>
       <nav >
@@ -27,7 +27,7 @@
           <li class="nav">
             <form id="logout-form" method="post" action="{% url 'logout' %}">
               {% csrf_token %}
-              <button type="submit">Log out</button>
+              <button class="logout-btn" type="submit">Log out</button>
             </form>
           </li>
           {% else %}

@@ -17,7 +17,8 @@ urlpatterns = [
   path('suppliers/', views.SupplierList.as_view(), name='supplier-index'),
   path('suppliers/<int:pk>/update/', views.SupplierUpdate.as_view(), name='supplier-update'),
   path('suppliers/<int:pk>/delete/', views.SupplierDelete.as_view(), name='supplier-delete'),
-  
-
+  path('products/<int:product_id>/add_photo/', views.add_photo, name='add_photo'),
 ]
+
+
 
