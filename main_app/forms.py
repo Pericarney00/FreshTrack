@@ -1,11 +1,11 @@
 from django import forms
-from .models import Product, Supplier
+from .models import Product, Supplier, Photo
 
 
 class ProductForm(forms.ModelForm):
   class Meta:
     model = Product
-    fields = ['name','brand','description','category','quantity','image', 'suppliers', 'date_added'] 
+    fields = ['name','brand','description','category','quantity', 'suppliers', 'date_added'] 
     widgets = {
       'date_added': forms.DateInput(
         format=('%Y-%m-%d'),
@@ -22,4 +22,8 @@ class ProductForm(forms.ModelForm):
 
     if user is not None:
       self.fields['suppliers'].queryset = Supplier.objects.filter(user=user)
-      
+
+class PhotoForm(forms.ModelForm):
+    class Meta:
+        model = Photo
+        fields = ['url', 'alt_text']
